@@ -5,10 +5,9 @@
  */
 package GUI;
 
-import java.awt.Dimension;
-import javax.swing.JComponent;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.util.Date;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,7 +15,11 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class ventanaLineaProduccion extends javax.swing.JFrame {
     
+    private DefaultTableModel modelo_tabla_sistema_electrico_banco_suspension,
+                              modelo_tabla_sistema_mecanico_banco_suspension;
     
+    
+    private ventanaPrincipal ventanaPrinci;
     /**
      * Creates new form ventanaLineaProduccion
      */
@@ -28,16 +31,51 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
             jInternalFrame1.getUI()).setNorthPane(null);
         BasicInternalFrameTitlePane titlePane =  (BasicInternalFrameTitlePane) ((BasicInternalFrameUI) jInternalFrame1.getUI()).getNorthPane();
         jInternalFrame1.remove(titlePane);
-        */
-         
-         
+        */        
     }
-    
-    
     public ventanaLineaProduccion(ventanaPrincipal ventanaPri){
+        cargarTablas();
         initComponents();
         this.setLocationRelativeTo(null);
+        ventanaPrinci=ventanaPri;
+        
     }
+    
+    public void cargarTablas(){
+        cargarTablaSitemaElectricoBancoSuspension();
+    }
+    
+    private void cargarTablaSitemaElectricoBancoSuspension(){
+       modelo_tabla_sistema_electrico_banco_suspension= new DefaultTableModel();
+       modelo_tabla_sistema_electrico_banco_suspension.addColumn("Modelo");
+       modelo_tabla_sistema_electrico_banco_suspension.addColumn("Año");
+       modelo_tabla_sistema_electrico_banco_suspension.addColumn("Fecha adquisición");
+       modelo_tabla_sistema_electrico_banco_suspension.addColumn("Costo USD");
+       // añado las filas
+       Object [] fila1=new Object[4];
+       fila1[0]= (String) "ACZ-11";
+       fila1[1]= (int)1997;
+       fila1[2]= (Date) new Date();
+       fila1[3]= (float)7500.0f;
+       //fila1= {,1997,new Date(), 7500};
+       modelo_tabla_sistema_electrico_banco_suspension.addRow(fila1);
+    }
+    
+    public void manejador_tabla_sist_electricos(){
+        //jTable1.setModel(mdelo_tabla_sistema_mecanico_banco_suspension);
+        jTable1= new JTable (modelo_tabla_sistema_electrico_banco_suspension);
+    }
+    
+     public void toggleButtons(){
+        jButton1.setEnabled(!jButton1.isEnabled());
+        jButton2.setEnabled(!jButton2.isEnabled());
+        jButton3.setEnabled(!jButton3.isEnabled());
+        jButton4.setEnabled(!jButton4.isEnabled());
+        jButton5.setEnabled(!jButton5.isEnabled());
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,7 +101,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel11 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
@@ -85,58 +123,88 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(215, 139, 119));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\close [#1538].png")); // NOI18N
         jButton1.setText("SALIR");
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
         });
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 220, 50));
 
         jButton2.setBackground(new java.awt.Color(215, 139, 119));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\camera [#936].png")); // NOI18N
         jButton2.setText("FOTOGRAFÍA/GASES");
         jButton2.setBorder(null);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+        });
         jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 220, 50));
 
         jButton3.setBackground(new java.awt.Color(215, 139, 119));
-        jButton3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\control [#848].png")); // NOI18N
         jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jButton3.setLabel("PLACAS CONTROL");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton3MousePressed(evt);
+            }
+        });
         jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 220, 50));
 
         jButton4.setBackground(new java.awt.Color(215, 139, 119));
-        jButton4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\cart_up_round [#1172].png")); // NOI18N
         jButton4.setText("BANCO SUSPENSIÓN");
         jButton4.setBorder(null);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton4.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton4MousePressed(evt);
+            }
+        });
         jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 220, 50));
 
         jButton5.setBackground(new java.awt.Color(215, 139, 119));
-        jButton5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\wheel [#115].png")); // NOI18N
         jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton5.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jButton5.setLabel("FRENÓMETRO");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton5MousePressed(evt);
+            }
+        });
         jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 220, 50));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 640));
@@ -145,10 +213,10 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("LÍNEA DE PRODUCCIÓN");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 660, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 660, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 930, 70));
 
@@ -157,8 +225,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(180, 82, 56));
         jTabbedPane1.setToolTipText("FOTOGRAFÍA/GASES");
-        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTabbedPane1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(217, 124, 78));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -186,22 +254,12 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Fecha", "Marca", "Propósito"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, false, false
-            };
+        ));
+        jScrollPane5.setViewportView(jTable1);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
-        jPanel10.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 760, 520));
+        jPanel10.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -209,10 +267,26 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jButton6.setBorder(null);
         jPanel11.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
+        jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel12MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel12MousePressed(evt);
+            }
+        });
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton7.setText("SIST. ELÉCTRICOS");
         jButton7.setBorder(null);
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton7MousePressed(evt);
+            }
+        });
         jPanel12.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -232,11 +306,11 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,7 +333,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 531, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("FRENÓMETRO", jPanel6);
@@ -274,12 +348,12 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 531, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("PLACAS CONTROL", jPanel7);
 
-        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 910, 560));
+        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 910, 560));
         jTabbedPane1.getAccessibleContext().setAccessibleName("FOTOGRAFÍA/GASES");
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 930, 570));
@@ -291,7 +365,72 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         this.setVisible(false);
+        ventanaPrinci.toggleButtons();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+        
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+       jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        // TODO add your handling code here:
+        jButton2MouseClicked(evt);
+    }//GEN-LAST:event_jButton2MousePressed
+
+    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+        // TODO add your handling code here:
+        jButton4MouseClicked(evt);
+    }//GEN-LAST:event_jButton4MousePressed
+
+    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+        // TODO add your handling code here:
+        jButton5MouseClicked(evt);
+    }//GEN-LAST:event_jButton5MousePressed
+
+    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+        // TODO add your handling code here:
+        jButton3MouseClicked(evt);
+    }//GEN-LAST:event_jButton3MousePressed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+        jButton1MouseClicked(evt);
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void jButton7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MousePressed
+        // TODO add your handling code here:
+        jButton7MouseClicked(evt);
+    }//GEN-LAST:event_jButton7MousePressed
+
+    private void jPanel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel12MousePressed
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        manejador_tabla_sist_electricos();
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -351,7 +490,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

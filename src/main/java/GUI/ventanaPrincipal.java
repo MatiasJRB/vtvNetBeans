@@ -32,7 +32,13 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         ventanaLineaProdu.setVisible(false);
     }
     
-
+    public void toggleButtons(){
+        jButton1.setEnabled(!jButton1.isEnabled());
+        jButton2.setEnabled(!jButton2.isEnabled());
+        jButton3.setEnabled(!jButton3.isEnabled());
+        jButton4.setEnabled(!jButton4.isEnabled());
+    }
+    
  public void establecerIcono() {
     //Image retValue = Toolkit.getDefaultToolkit().
       //   getImage(ClassLoader.getSystemResource("Extras/lobopng.png"));
@@ -87,12 +93,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(0, 153, 204));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\home [#1392].png")); // NOI18N
         jButton1.setText("HOME");
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -113,12 +118,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 170, 50));
 
         jButton2.setBackground(new java.awt.Color(0, 153, 204));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\profile [#1335].png")); // NOI18N
         jButton2.setText("USUARIO");
         jButton2.setBorder(null);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -140,12 +144,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, 50));
 
         jButton3.setBackground(new java.awt.Color(0, 153, 204));
-        jButton3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\close [#1538].png")); // NOI18N
         jButton3.setText("SALIR");
         jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -159,15 +162,15 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("BULLMETAL S.R.L.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 570, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 570, 40));
 
-        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 2, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("19 de noviembre de 2019");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, -1, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, -1, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 1010, 70));
 
@@ -181,19 +184,21 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(102, 204, 255));
         jButton4.setForeground(new java.awt.Color(102, 204, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\arrow_right [#365].png")); // NOI18N
         jButton4.setBorder(null);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton4.setFocusPainted(false);
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton4MousePressed(evt);
+            }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 50, -1));
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 50, 30));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("LÍNEA DE PRODUCCIÓN");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 350, 40));
@@ -220,41 +225,39 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(153, 153, 255));
         jButton5.setForeground(new java.awt.Color(102, 204, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\arrow_right [#365].png")); // NOI18N
         jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton5.setFocusPainted(false);
         jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 50, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 22)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("EDILICIO");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 230, 40));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 22)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("MANTENIMIENTO");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 230, 40));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 22)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("MANTENIMIENTO");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 230, 40));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 22)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("DEL PREDIO");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 230, 40));
 
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setForeground(new java.awt.Color(102, 204, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\pack de iconos\\1800 Icon Pack [20x20]\\PNG@2_white_icons\\arrow_right [#365].png")); // NOI18N
         jButton6.setBorder(null);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton6.setFocusPainted(false);
         jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 50, -1));
 
@@ -263,10 +266,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(102, 102, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("APARTADO ESTADÍSTICO");
-        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, 30));
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, 30));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 480, 190));
 
@@ -279,13 +282,21 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        if (jButton3.isEnabled())
+            System.exit(0);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         mostrarVentanaLineaProduccion();
+        toggleButtons();
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+        // TODO add your handling code here:
+        jButton4MouseClicked(evt);
+        
+    }//GEN-LAST:event_jButton4MousePressed
 
     public void mostrarVentanaLineaProduccion(){
         ventanaLineaProdu.setVisible(true);
