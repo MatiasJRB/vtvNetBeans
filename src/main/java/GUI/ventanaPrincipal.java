@@ -5,11 +5,9 @@
  */
 package GUI;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -17,7 +15,12 @@ import javax.swing.ImageIcon;
  */
 public class ventanaPrincipal extends javax.swing.JFrame {
 
-    private ventanaLineaProduccion ventanaLineaProdu;
+    public ventanaLineaProduccion ventanaLineaProdu;
+    private static ventanaPrincipal ventanaPrinci;
+    private static splash Splash;
+    private static Timer timer;
+    private static TimerTask task;
+    
     /**
      * Creates new form ventanaPrincipal
      */
@@ -32,11 +35,26 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         ventanaLineaProdu.setVisible(false);
     }
     
-    public void toggleButtons(){
+    public void toggleButtons()
+    {
+        System.out.println("intercambio");
         jButton1.setEnabled(!jButton1.isEnabled());
         jButton2.setEnabled(!jButton2.isEnabled());
         jButton3.setEnabled(!jButton3.isEnabled());
         jButton4.setEnabled(!jButton4.isEnabled());
+    }
+    
+    private void cambiarContexto()
+    {
+        toggleButtons();
+    }
+    
+    public static void apagarSplash()
+    {
+        Splash.terminarEjecucion();
+        Splash.dispose();
+        Splash.setVisible(false);
+        Splash.setEnabled(false);
     }
     
  public void establecerIcono() {
@@ -81,6 +99,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BullMetal S.R.L.");
@@ -95,9 +114,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 153, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\home [#1391].png")); // NOI18N
         jButton1.setText("HOME");
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -120,19 +140,18 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 153, 204));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\profile [#1335].png")); // NOI18N
         jButton2.setText("USUARIO");
         jButton2.setBorder(null);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
+            .addGap(0, 140, Short.MAX_VALUE)
             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 48, Short.MAX_VALUE)))
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,14 +160,15 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, 50));
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 50));
 
         jButton3.setBackground(new java.awt.Color(0, 153, 204));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\close [#1538].png")); // NOI18N
         jButton3.setText("SALIR");
         jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -165,7 +185,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("BULLMETAL S.R.L.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 570, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 380, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,10 +202,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 430, 2));
 
-        jButton4.setBackground(new java.awt.Color(102, 204, 255));
-        jButton4.setForeground(new java.awt.Color(102, 204, 255));
+        jButton4.setBackground(new java.awt.Color(153, 204, 255));
+        jButton4.setForeground(new java.awt.Color(153, 204, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
         jButton4.setBorder(null);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setFocusPainted(false);
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,7 +216,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                 jButton4MousePressed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 50, 30));
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 50, 50));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -225,10 +246,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(153, 153, 255));
         jButton5.setForeground(new java.awt.Color(102, 204, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
         jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setFocusPainted(false);
-        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 50, -1));
+        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 50, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -256,10 +278,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setForeground(new java.awt.Color(102, 204, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
         jButton6.setBorder(null);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusPainted(false);
-        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 50, -1));
+        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 50, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 480, 190));
 
@@ -275,6 +298,10 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\logo.png")); // NOI18N
+        jPanel12.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 570));
+
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 530, 570));
 
         pack();
@@ -289,16 +316,16 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         mostrarVentanaLineaProduccion();
-        toggleButtons();
+        
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
         // TODO add your handling code here:
-        jButton4MouseClicked(evt);
-        
+        //jButton4MouseClicked(evt);        
     }//GEN-LAST:event_jButton4MousePressed
 
     public void mostrarVentanaLineaProduccion(){
+        cambiarContexto();
         ventanaLineaProdu.setVisible(true);
     }
     /**
@@ -330,8 +357,49 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ventanaPrincipal().setVisible(true);
+            public void run() {                
+                Splash=new splash();                
+                timer = new Timer();
+                task = new TimerTask() {
+                                        int tics=0;
+                                        boolean flag=false;
+                                        boolean activado=true;
+                                        public void establecerActivado(boolean a)
+                                        {
+                                            activado=a;
+                                        }
+                                        public boolean retornarActivado()
+                                        {
+                                            return activado;
+                                        }
+                                        @Override
+                                        public void run()
+                                        {
+                                            if (activado)
+                                            {
+                                                if (tics==0)
+                                                {
+                                                    Splash.setVisible(true);
+                                                }
+                                                else
+                                                {
+                                                    if (tics%120==0)
+                                                    {    
+                                                       apagarSplash();
+                                                       ventanaPrinci.setVisible(true);
+                                                       activado=false;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {                                                                                                
+                                                timer.cancel();
+                                            }
+                                            tics++;
+                                        }
+                };
+                timer.schedule(task, 10, 70);                  
+                ventanaPrinci =new ventanaPrincipal();
             }
         });
     }
@@ -351,6 +419,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
