@@ -8,14 +8,33 @@ package GUI;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/**
+
+/*
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+
+import org.jfree.chart.plot.PlotOrientation;*/
+
+
+
+
+/*
  *
  * @author mjrca
  */
@@ -33,7 +52,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private ventanaPrincipal ventanaPrinci;
     public ventanaInformacionMaquina ventanaInformacionMaq;
     
-    
+    private int tipoPrevision;
     
     private boolean infoApretada,
                     sistema_electrico_seleccionado,
@@ -53,7 +72,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         */    
         caracteristicas_jtable();
         inicializarVentanas();
-        JFreeChart f;
+        tipoPrevision=0;
     }
     
     public ventanaLineaProduccion(ventanaPrincipal ventanaPri){
@@ -492,16 +511,94 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jButton5.setEnabled(!jButton5.isEnabled());
     }
     
-     public void cargarEstadisticoSemanal()
+    //////// previsiones
+     
+     
+     public void habilitarPrevisionSemanal()
+     {
+         tipoPrevision=0;
+         jLabel5.setText("PROVISIÓN SEMANAL");
+         cargarTablaPrevisionSemanal();
+         jLabel4.setText("TOTAL: 17 USD");
+     }
+     
+     public void cargarTablaPrevisionSemanal()
+     {
+         System.out.println("Cargo las previsiones semanales");
+     }
+     
+     public void habilitarPrevisionMensual()
+     {
+         tipoPrevision=1;
+         jLabel5.setText("PROVISIÓN MENSUAL");
+         cargarTablaPrevisionMensual();
+         jLabel4.setText("TOTAL: 277 USD");     
+     }
+     public void cargarTablaPrevisionMensual()
+     {
+         System.out.println("Cargo las previsiones mensual");
+     }
+     
+     
+     
+     public void manejador_impresion()
+     {
+         generarExcel();
+     }
+     
+     private void generarExcel()
+     {
+         // solo voy a generar el semanal
+         if (tipoPrevision==1)
+         {
+             generarExcelPrevisionMensual();
+         
+         }
+         else
+         {
+             System.out.println("Por el momento sólo generamos previsiones mensuales");
+         }
+     }
+     
+     private void generarExcelPrevisionMensual()
      {
          try
          {
-             //JFreeChart jf;
+              String rutaExcel="C:\\Users\\mjrca\\Desktop\\Basedatosmaquinas\\as.xlsx";
+              FileInputStream inputStream = new FileInputStream(new File(rutaExcel));             
+              Workbook workbook = new XSSFWorkbook(inputStream);
+              Sheet firstSheet = workbook.getSheetAt(0);
+              Iterator iterator = firstSheet.iterator();
+              String id,nombre,precio,cantidad,descripcion; 
+              Object [] row;
+             System.out.println("Abri el excel");
+             DataFormatter formatter = new DataFormatter();
+             Iterator cellIterator;
+             Cell cell;
+             int i,c; 
+             i=0;
+             c=0;
+             Row r;
+             while (iterator.hasNext())
+             {
+                 System.out.println("Estoy recorriendo las filas");
+             	r= (Row) iterator.next();
+             	cellIterator = r.cellIterator();            	
+             	while (cellIterator.hasNext()) 
+                {
+                    System.out.println("Estoy recorriendo las celdas");
+                    cell= (Cell) cellIterator.next();             		
+                    String contenidoCelda = formatter.formatCellValue(cell);
+                    System.out.println(contenidoCelda);
+                }
+             }
          }
-         catch(Exception e)
-         {
+         catch (Exception e)
+         {        
+             System.out.println("No pudo abrir el Excel");
              e.printStackTrace();
          }
+                                   
      
      }
     
@@ -549,6 +646,14 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
+        jButton20 = new javax.swing.JButton();
+        jPanel29 = new javax.swing.JPanel();
+        jButton21 = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         jButton14 = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
@@ -927,6 +1032,88 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jPanel21.setBackground(new java.awt.Color(153, 184, 255));
         jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("TOTAL: ");
+        jPanel21.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 330, 40));
+
+        jTable2.setBackground(new java.awt.Color(0, 153, 204));
+        jTable2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(255, 255, 255));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(jTable2);
+
+        jPanel21.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 710, 390));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("PREVISIÓN SEMANAL");
+        jPanel21.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 400, 40));
+
+        jPanel28.setBackground(new java.awt.Color(153, 184, 255));
+        jPanel28.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton20.setBackground(new java.awt.Color(153, 184, 255));
+        jButton20.setForeground(new java.awt.Color(255, 255, 255));
+        jButton20.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\white printer 4242.png")); // NOI18N
+        jButton20.setBorder(null);
+        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton20MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton20MousePressed(evt);
+            }
+        });
+        jPanel28.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, -1));
+
+        jPanel21.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 50, -1));
+
+        jPanel29.setBackground(new java.awt.Color(153, 184, 255));
+        jPanel29.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton21.setBackground(new java.awt.Color(153, 184, 255));
+        jButton21.setForeground(new java.awt.Color(255, 255, 255));
+        jButton21.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\save white.png")); // NOI18N
+        jButton21.setBorder(null);
+        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton21MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton21MousePressed(evt);
+            }
+        });
+        jPanel29.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, -1));
+
+        jPanel21.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 50, -1));
+
         jPanel23.setBackground(new java.awt.Color(0, 153, 204));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1228,6 +1415,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         // TODO add your handling code here:
+        habilitarPrevisionMensual();
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MousePressed
@@ -1236,7 +1424,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
         // TODO add your handling code here:
-        cargarEstadisticoSemanal();
+        //cargarEstadisticoSemanal();
+        habilitarPrevisionSemanal();
     }//GEN-LAST:event_jButton16MouseClicked
 
     private void jButton16MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MousePressed
@@ -1274,6 +1463,23 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private void jButton19MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19MousePressed
+
+    private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
+        // TODO add your handling code here:
+        manejador_impresion();
+    }//GEN-LAST:event_jButton20MouseClicked
+
+    private void jButton20MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20MousePressed
+
+    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21MouseClicked
+
+    private void jButton21MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21MousePressed
 
     /**
      * @param args the command line arguments
@@ -1320,6 +1526,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1328,6 +1536,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1343,6 +1553,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1351,8 +1563,10 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

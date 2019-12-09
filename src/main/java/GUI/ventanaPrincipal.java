@@ -7,7 +7,6 @@ package GUI;
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -29,6 +28,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         establecerIcono();
         inicializarVentanas();
+        System.out.println ("EL FUCKIN CLASSPATH"+System.getProperty ("java.class.path"));
     }
     public void inicializarVentanas(){
         ventanaLineaProdu= new ventanaLineaProduccion(this);
@@ -357,7 +357,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {                
+            public void run() {  
+                System.out.println("ACA ESTA EL CLASSPATH"+System.getProperty("java.classpath"));
                 Splash=new splash();                
                 timer = new Timer();
                 task = new TimerTask() {
