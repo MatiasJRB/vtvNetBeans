@@ -46,7 +46,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
                                 modelo_tabla_control_sistema_electrico_frenometro,
                                 modelo_tabla_potencia_sistema_electrico_frenometro,
                                 modelo_tabla_sistema_hidraulico_frenometro,
-                                modelo_tabla_sistema_mecanico_frenometro;
+                                modelo_tabla_sistema_mecanico_frenometro,
+                                modelo_tabla_prevision_mensual;
     
     private String maquinaSeleccionada;
     private ventanaPrincipal ventanaPrinci;
@@ -58,6 +59,10 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
                     sistema_electrico_seleccionado,
                     sistema_hidraulico_seleccionado,
                     sistema_mecanico_seleccionado;
+    
+    private String fila17,fila18,fila9;
+    
+    private Impresor impresor;
     /**
      * Creates new form ventanaLineaProduccion
      */
@@ -72,8 +77,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         */    
         caracteristicas_jtable();
         inicializarVentanas();
-        tipoPrevision=0;
     }
+    
     
     public ventanaLineaProduccion(ventanaPrincipal ventanaPri){
         cargarTablas();
@@ -86,7 +91,15 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         deshabilitarInnecesarios();
         sistema_electrico_seleccionado=false;
         sistema_hidraulico_seleccionado=false;
-        sistema_mecanico_seleccionado=false;
+        sistema_mecanico_seleccionado=false;        
+        tipoPrevision=0;
+        impresor= new Impresor();
+    }
+    
+    public void previsionesMensuales()
+    {
+        jButton5MouseClicked(null);
+        jButton14MouseClicked(null);
     }
     
     private void deshabilitarInnecesarios()
@@ -522,28 +535,80 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
          jLabel4.setText("TOTAL: 17 USD");
      }
      
-     public void cargarTablaPrevisionSemanal()
-     {
-         System.out.println("Cargo las previsiones semanales");
-     }
+    public void cargarTablaPrevisionSemanal()
+    {
+        System.out.println("Cargo las previsiones semanales");
+        
+    }
      
-     public void habilitarPrevisionMensual()
-     {
-         tipoPrevision=1;
-         jLabel5.setText("PROVISIÓN MENSUAL");
-         cargarTablaPrevisionMensual();
-         jLabel4.setText("TOTAL: 277 USD");     
-     }
-     public void cargarTablaPrevisionMensual()
-     {
-         System.out.println("Cargo las previsiones mensual");
-     }
+    public void habilitarPrevisionMensual()
+    {
+        tipoPrevision=1;
+        jLabel5.setText("PROVISIÓN MENSUAL");
+        cargarTablaPrevisionMensual();
+        jTable2.setModel(modelo_tabla_prevision_mensual);
+        crearFilasExcelPrevisionMensual();
+        jLabel4.setText("TOTAL: 9.172,00 USD");     
+    }
+    
+    private void crearFilasExcelPrevisionMensual()
+    {
+        
+    }
+    
+    public void cargarTablaPrevisionMensual()
+    {
+        modelo_tabla_prevision_mensual = new DefaultTableModel();
+        modelo_tabla_prevision_mensual.addColumn("Modelo");
+        modelo_tabla_prevision_mensual.addColumn("Año");
+        modelo_tabla_prevision_mensual.addColumn("Fecha adquisición");
+        modelo_tabla_prevision_mensual.addColumn("Costo USD");
+        modelo_tabla_prevision_mensual.addColumn("Campo A");
+        modelo_tabla_prevision_mensual.addColumn("Campo B");
+        
+       Object [] fila1=new Object[6];
+       fila1[0]= (String) "ACZ-11";
+       fila1[1]= (int)1997;
+       fila1[2]= (String) dateToString(new Date());
+       fila1[3]= (float)7500.0f;
+       fila1[4]= (String) "Dato 1";
+       fila1[5]= (String) "Dato 2";
+       Object [] fila2= new String[6];
+       fila2[0]= (String)"SP3-505";
+       fila2[1]= (String)"2001";
+       fila2[2]= dateToString(new Date());
+       fila2[3]= (String)"895.00";
+       fila2[4]= (String)"Dato 1";
+       fila2[5]= (String)"Dato 2";
+       
+       Object [] fila3= new String[6];
+       fila3[0]= (String) "MDQ-777";
+       fila3[1]= (String) "2007";
+       fila3[2]= (String) dateToString(new Date());
+       fila3[3]= (String) "777.00";
+       fila3[4]= (String) "Dato 1";
+       fila3[5]= (String) "Dato 2";
+       
+        modelo_tabla_prevision_mensual.addRow(fila1);
+        modelo_tabla_prevision_mensual.addRow(fila2);
+        modelo_tabla_prevision_mensual.addRow(fila3);
+        System.out.println("Cargo las previsiones mensual");
+    }
      
      
      
      public void manejador_impresion()
      {
          generarExcel();
+         String direccion="C:\\Users\\mjrca\\Desktop\\Basedatosmaquinas\\previsionmensual.pdf";
+         try
+         {
+            impresor.imprimir(direccion);         
+         }
+         catch(Exception e)
+         {
+             e.printStackTrace();
+         }
      }
      
      private void generarExcel()
@@ -564,12 +629,11 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
      {
          try
          {
-              String rutaExcel="C:\\Users\\mjrca\\Desktop\\Basedatosmaquinas\\as.xlsx";
+              String rutaExcel="C:\\Users\\mjrca\\Desktop\\Basedatosmaquinas\\previsionmensual.xlsx";
               FileInputStream inputStream = new FileInputStream(new File(rutaExcel));             
               Workbook workbook = new XSSFWorkbook(inputStream);
               Sheet firstSheet = workbook.getSheetAt(0);
               Iterator iterator = firstSheet.iterator();
-              String id,nombre,precio,cantidad,descripcion; 
               Object [] row;
              System.out.println("Abri el excel");
              DataFormatter formatter = new DataFormatter();
@@ -581,15 +645,13 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
              Row r;
              while (iterator.hasNext())
              {
-                 System.out.println("Estoy recorriendo las filas");
              	r= (Row) iterator.next();
              	cellIterator = r.cellIterator();            	
              	while (cellIterator.hasNext()) 
                 {
-                    System.out.println("Estoy recorriendo las celdas");
                     cell= (Cell) cellIterator.next();             		
                     String contenidoCelda = formatter.formatCellValue(cell);
-                    System.out.println(contenidoCelda);
+                    //System.out.println(contenidoCelda);
                 }
              }
          }

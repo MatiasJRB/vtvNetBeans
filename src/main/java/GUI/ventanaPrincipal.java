@@ -7,6 +7,7 @@ package GUI;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.TimerTask;
  */
 public class ventanaPrincipal extends javax.swing.JFrame {
 
-    public ventanaLineaProduccion ventanaLineaProdu;
+    public static ventanaLineaProduccion ventanaLineaProdu;
     private static ventanaPrincipal ventanaPrinci;
     private static splash Splash;
     private static Timer timer;
@@ -35,7 +36,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         ventanaLineaProdu.setVisible(false);
     }
     
-    public void toggleButtons()
+    public static void toggleButtons()
     {
         System.out.println("intercambio");
         jButton1.setEnabled(!jButton1.isEnabled());
@@ -44,7 +45,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton4.setEnabled(!jButton4.isEnabled());
     }
     
-    private void cambiarContexto()
+    private static void cambiarContexto()
     {
         toggleButtons();
     }
@@ -57,7 +58,24 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         Splash.setEnabled(false);
     }
     
- public void establecerIcono() {
+    public static void mensajePrevision()
+    {
+        String [] botones = { "Aceptar", "Llevarme allí"};
+
+        //int variable = JOptionPane.showOptionDialog (null, " Quieres bailar esta noche?", "Cita", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null/*icono*/, botones, botones[0]);
+
+        int variable=JOptionPane.showOptionDialog(null, "¡Tienes previsiones mensuales que atender!", 
+                "Previsiones | Línea de producción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                null/*icono*/, botones, botones[0]);
+        if (variable==1)
+        {
+            mostrarVentanaLineaProduccion();
+            ventanaLineaProdu.previsionesMensuales();
+            
+        }
+    }
+    
+    public void establecerIcono() {
     //Image retValue = Toolkit.getDefaultToolkit().
       //   getImage(ClassLoader.getSystemResource("Extras/lobopng.png"));
     //this.setIconImage(retValue);
@@ -65,7 +83,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     
     //Image Image = icon.getImage();
     //this.setIconImage(Image);
-}
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -317,6 +335,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         mostrarVentanaLineaProduccion();
         
+        
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
@@ -324,7 +343,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         //jButton4MouseClicked(evt);        
     }//GEN-LAST:event_jButton4MousePressed
 
-    public void mostrarVentanaLineaProduccion(){
+    public static void mostrarVentanaLineaProduccion(){
         cambiarContexto();
         ventanaLineaProdu.setVisible(true);
     }
@@ -384,10 +403,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                                                 }
                                                 else
                                                 {
-                                                    if (tics%120==0)
+                                                    if (tics%130==0)
                                                     {    
                                                        apagarSplash();
                                                        ventanaPrinci.setVisible(true);
+                                                       mensajePrevision();
                                                        activado=false;
                                                     }
                                                 }
@@ -406,12 +426,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private static javax.swing.JButton jButton1;
+    static javax.swing.JButton jButton2;
+    static javax.swing.JButton jButton3;
+    static javax.swing.JButton jButton4;
+    static javax.swing.JButton jButton5;
+    static javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

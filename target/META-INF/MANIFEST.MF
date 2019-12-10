@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven 3.3.9
+Main-Class: GUI.ventanaPrincipal
+Built-By: mjrca
+Build-Jdk: 12.0.2
+
+
