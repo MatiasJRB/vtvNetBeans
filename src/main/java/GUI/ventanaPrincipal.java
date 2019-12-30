@@ -132,7 +132,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 153, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\home [#1391].png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Iconos usados\\home [#1391].png")); // NOI18N
         jButton1.setText("HOME");
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -158,7 +158,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 153, 204));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\profile [#1335].png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Iconos usados\\profile [#1335].png")); // NOI18N
         jButton2.setText("USUARIO");
         jButton2.setBorder(null);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -183,7 +183,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 153, 204));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\close [#1538].png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Iconos usados\\close [#1538].png")); // NOI18N
         jButton3.setText("SALIR");
         jButton3.setBorder(null);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -222,7 +222,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(153, 204, 255));
         jButton4.setForeground(new java.awt.Color(153, 204, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
         jButton4.setBorder(null);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setFocusPainted(false);
@@ -264,7 +264,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(153, 153, 255));
         jButton5.setForeground(new java.awt.Color(102, 204, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
         jButton5.setBorder(null);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setFocusPainted(false);
@@ -296,7 +296,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setForeground(new java.awt.Color(102, 204, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Iconos usados\\arrow_right_in [#386].png")); // NOI18N
         jButton6.setBorder(null);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusPainted(false);
@@ -317,7 +317,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\logo.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Imagenes maquinas\\logo.png")); // NOI18N
         jPanel12.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 570));
 
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 530, 570));
@@ -334,8 +334,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         mostrarVentanaLineaProduccion();
-        
-        
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed

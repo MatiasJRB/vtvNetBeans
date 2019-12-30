@@ -85,7 +85,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\mjrca\Desktop\Iconos usados\home [#1391].png"/>
+                  <Image iconType="2" name="C:\BullMetal\Iconos usados\home [#1391].png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="HOME"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -140,7 +140,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\mjrca\Desktop\Iconos usados\profile [#1335].png"/>
+                  <Image iconType="2" name="C:\BullMetal\Iconos usados\profile [#1335].png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="USUARIO"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -168,7 +168,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mjrca\Desktop\Iconos usados\close [#1538].png"/>
+              <Image iconType="2" name="C:\BullMetal\Iconos usados\close [#1538].png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SALIR"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -289,7 +289,7 @@
               <Color blue="ff" green="cc" red="99" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mjrca\Desktop\Iconos usados\arrow_right_in [#386].png"/>
+              <Image iconType="2" name="C:\BullMetal\Iconos usados\arrow_right_in [#386].png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -383,7 +383,7 @@
               <Color blue="ff" green="cc" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mjrca\Desktop\Iconos usados\arrow_right_in [#386].png"/>
+              <Image iconType="2" name="C:\BullMetal\Iconos usados\arrow_right_in [#386].png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -487,7 +487,7 @@
               <Color blue="ff" green="cc" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mjrca\Desktop\Iconos usados\arrow_right_in [#386].png"/>
+              <Image iconType="2" name="C:\BullMetal\Iconos usados\arrow_right_in [#386].png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -561,7 +561,7 @@
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\mjrca\Desktop\Imagenes maquinas\logo.png"/>
+              <Image iconType="2" name="C:\BullMetal\Imagenes maquinas\logo.png"/>
             </Property>
           </Properties>
           <Constraints>

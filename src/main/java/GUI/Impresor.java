@@ -45,8 +45,8 @@ public class Impresor
         {            
             job.setPageable(new PDFPageable(document));
             LOGGER.log(Level.INFO, "Imprimiendo documento");            
-            //job.print();
-            System.out.println("Imprimiendo, linea comentada");
+            job.print();
+            //System.out.println("Imprimiendo, linea comentada");
         }
     }
 }

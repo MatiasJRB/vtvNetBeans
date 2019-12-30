@@ -32,6 +32,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
     private Timer timer;
     private TimerTask task;
     private boolean bobina;
+    private String dir;
     
     public ventanaInformacionMaquina() 
     {
@@ -48,6 +49,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         cargarInfoBasica();
         jPanel16.setVisible(false);
         timer = new Timer();
+        dir= new String("C:\\\\BullMetall");
         task = new TimerTask() {
                                 int tics=0;
                                 boolean flag=false;
@@ -97,7 +99,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel5.setText("INTRODUCCIÓN");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\intro.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\intro.txt");
         }
         catch(Exception e)
         {
@@ -111,7 +113,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel5.setText("INFORMACIÓN BÁSICA");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\y2.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\y2.txt");
         }
         catch(Exception e)
         {
@@ -125,7 +127,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel5.setText("INFORMACIÓN BÁSICA");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\bobina.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\bobina.txt");
         }
         catch(Exception e)
         {
@@ -140,7 +142,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("INFORMACIÓN TÉCNICA");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\datostecnicos.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\datostecnicos.txt");
         }
         catch(Exception e)
         {
@@ -154,7 +156,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("INFORMACIÓN TÉCNICA");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\datostecnicos.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\datostecnicos.txt");
         }
         catch(Exception e)
         {
@@ -168,7 +170,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("PREVISIÓN");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\prevision.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\prevision.txt");
         }
         catch(Exception e)
         {
@@ -182,7 +184,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("PREVISIÓN");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\prevision.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\prevision.txt");
         }
         catch(Exception e)
         {
@@ -196,7 +198,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("ESTADÍSTICO");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\estadistico.txt");
+            volcarContenido(dir+"Desktop\\\\Basedatosmaquinas\\\\y2\\\\estadistico.txt");
         }
         catch(Exception e)
         {
@@ -210,7 +212,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("ESTADÍSTICO");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\estadistico.txt");
+            volcarContenido(dir+"Basedatosmaquinas\\\\y2\\\\bobina\\\\estadistico.txt");
         }
         catch(Exception e)
         {
@@ -224,7 +226,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("CONDICIONES DE OPERACIÓN");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\condicionesdeoperacion.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\condicionesdeoperacion.txt");
         }
         catch(Exception e)
         {
@@ -238,7 +240,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("CONDICIONES DE OPERACIÓN");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\condicionesdeoperacion.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\condicionesdeoperacion.txt");
         }
         catch(Exception e)
         {
@@ -257,7 +259,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
     
     private void cargarImagenBobina()
     {
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\bobina.png"));    
+        jLabel2.setIcon(new javax.swing.ImageIcon(dir+"\\Imagenes maquinas\\bobina.png"));    
     }
     
     private void cargarIntroBobina()
@@ -265,7 +267,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel5.setText("INTRODUCCIÓN");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\intro.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\intro.txt");
         }
         catch(Exception e)
         {
@@ -280,7 +282,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel4.setText("INFORMACIÓN TÉCNICA");
         try
         {
-            volcarContenido("C:\\\\Users\\\\mjrca\\\\Desktop\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\datostecnicos.txt");
+            volcarContenido(dir+"\\\\Basedatosmaquinas\\\\y2\\\\bobina\\\\datostecnicos.txt");
         }
         catch(Exception e)
         {
@@ -303,7 +305,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
     
     private void cargarImagenMotor()
     {
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\Y2-180L-4.png")); 
+        jLabel2.setIcon(new javax.swing.ImageIcon(dir+"\\Imagenes maquinas\\Y2-180L-4.png")); 
     }
 
     

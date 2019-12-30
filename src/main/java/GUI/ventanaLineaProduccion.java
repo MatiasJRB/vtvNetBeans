@@ -60,7 +60,10 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
                     sistema_hidraulico_seleccionado,
                     sistema_mecanico_seleccionado;
     
-    private String fila17,fila18,fila9;
+    private String  fila17,
+                    fila18,
+                    fila9,
+                    dir;
     
     private Impresor impresor;
     /**
@@ -76,7 +79,8 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
         jInternalFrame1.remove(titlePane);
         */    
         caracteristicas_jtable();
-        inicializarVentanas();
+        inicializarVentanas();        
+        dir= new String("C:\\\\BullMetall");        
     }
     
     
@@ -199,6 +203,20 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
                     
             }
         });;
+        jTable2.setRowHeight(70);
+        jTable2.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent evt) 
+            {                
+                    JTable table = (JTable) evt.getSource();
+                    int row = table.rowAtPoint(evt.getPoint());
+                    TableModel model = table.getModel();
+                    maquinaSeleccionada= new String(model.getValueAt(row, 0).toString());
+                    System.out.println("La maquina seleccionada es "+ maquinaSeleccionada);
+                    
+            }
+        });;
+             
     }
     
     private void cargarTablaSistemaHidraulicoFrenometro()
@@ -600,7 +618,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
      public void manejador_impresion()
      {
          generarExcel();
-         String direccion="C:\\Users\\mjrca\\Desktop\\Basedatosmaquinas\\previsionmensual.pdf";
+         String direccion=dir+"\\Basedatosmaquinas\\previsionmensual.pdf";
          try
          {
             impresor.imprimir(direccion);         
@@ -629,7 +647,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
      {
          try
          {
-              String rutaExcel="C:\\Users\\mjrca\\Desktop\\Basedatosmaquinas\\previsionmensual.xlsx";
+              String rutaExcel=dir+"\\Basedatosmaquinas\\previsionmensual.xlsx";
               FileInputStream inputStream = new FileInputStream(new File(rutaExcel));             
               Workbook workbook = new XSSFWorkbook(inputStream);
               Sheet firstSheet = workbook.getSheetAt(0);
@@ -1478,6 +1496,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         // TODO add your handling code here:
         habilitarPrevisionMensual();
+        caracteristicas_jtable();
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MousePressed
