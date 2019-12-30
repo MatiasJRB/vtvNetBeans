@@ -49,7 +49,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         cargarInfoBasica();
         jPanel16.setVisible(false);
         timer = new Timer();
-        dir= new String("C:\\\\BullMetall");
+        dir= new String("C:\\\\BullMetal");
         task = new TimerTask() {
                                 int tics=0;
                                 boolean flag=false;
@@ -103,7 +103,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 1"+ e.getMessage());
         }
         jLabel6.setText(contenidoArchivo);    
     }
@@ -117,7 +117,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 2"+ e.getMessage());
         }
         jLabel6.setText(contenidoArchivo);
     }
@@ -131,7 +131,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 3");
         }
         jLabel6.setText(contenidoArchivo);
     }
@@ -146,7 +146,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 4");
         }
         jLabel1.setText(contenidoArchivo);
     }
@@ -160,7 +160,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 5");
         }
         jLabel1.setText(contenidoArchivo);    
     }
@@ -174,7 +174,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 6");
         }
         jLabel1.setText(contenidoArchivo);
     }
@@ -188,7 +188,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 7");
         }
         jLabel1.setText(contenidoArchivo);   
     }
@@ -202,7 +202,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 8");
         }
         jLabel1.setText(contenidoArchivo);
     }
@@ -216,7 +216,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 9");
         }
         jLabel1.setText(contenidoArchivo);
     }
@@ -230,7 +230,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 10");
         }
         jLabel1.setText(contenidoArchivo);    
     }
@@ -244,7 +244,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 11");
         }
         jLabel1.setText(contenidoArchivo);  
     }
@@ -271,7 +271,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 12");
         }
         jLabel6.setText(contenidoArchivo);
     
@@ -286,7 +286,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            System.out.println("No pude abrir el txt");
+            System.out.println("No pude abrir el txt 13");
         }
         jLabel1.setText(contenidoArchivo);        
     }
@@ -840,11 +840,14 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
     // METODOS
     
     public void volcarContenido(String archivo) throws FileNotFoundException, IOException {
-        
+        System.out.println("llego aca 1");
         //FileReader f = new FileReader(archivo);
-        FileReader f = new FileReader(archivo, StandardCharsets.UTF_8);
-        InputStreamReader fis= new InputStreamReader(new FileInputStream(archivo),"ISO-8859-1");        
-        BufferedReader b = new BufferedReader(f);
+        //FileReader f = new FileReader(archivo, StandardCharsets.UTF_8);
+        //InputStreamReader fis= new InputStreamReader(new FileInputStream(archivo),"ISO-8859-1"); 
+        InputStreamReader fis= new InputStreamReader(new FileInputStream(archivo),"UTF-8");
+        System.out.println("llego aca 2");
+        BufferedReader b = new BufferedReader(fis);
+        System.out.println("llego aca 3");
         String linea;
         contenidoArchivo= "<html>";
         linea=b.readLine();
