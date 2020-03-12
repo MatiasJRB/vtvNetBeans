@@ -80,6 +80,21 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    public static void mensajeAdvertencia()
+    {
+        String [] botones = { "Aceptar", "Explicar situación"};
+
+        //int variable = JOptionPane.showOptionDialog (null, " Quieres bailar esta noche?", "Cita", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null/*icono*/, botones, botones[0]);
+
+        int variable=JOptionPane.showOptionDialog(null, "Un pendiente de tu responsabilidad lleva '5 días' sin ser dado de alta, la situación fue advertida ante superiores", 
+                "Previsiones | Línea de producción", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                null/*icono*/, botones, botones[0]);
+        if (variable==1)
+        {
+            mostrarVentanaEnviarMailSuperiores();          
+        }
+    }
+    
     public void establecerIcono() {
     //Image retValue = Toolkit.getDefaultToolkit().
       //   getImage(ClassLoader.getSystemResource("Extras/lobopng.png"));

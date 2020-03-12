@@ -587,7 +587,7 @@ public class ventanaLineaProduccion extends javax.swing.JFrame {
        Object [] fila1=new Object[6];
        fila1[0]= (String) "ACZ-11";
        fila1[1]= (int)1997;
-       fila1[2]= (String) dateToString(new Date());
+       fila1[2]= (String) dateToString(new Date()); /*esta la voy a modificar con 4 dias de atraso sin revision*/
        fila1[3]= (float)7500.0f;
        fila1[4]= (String) "Dato 1";
        fila1[5]= (String) "Dato 2";
