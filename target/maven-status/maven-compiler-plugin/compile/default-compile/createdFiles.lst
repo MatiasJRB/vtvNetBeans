@@ -20,6 +20,7 @@ GUI\ventanaInformacionMaquina$2.class
 GUI\ventanaInformacionMaquina.class
 GUI\login$7.class
 GUI\ventanaInformacionMaquina$10.class
+GUI\ventanaEnviarMailSuperiores.class
 GUI\ventanaLineaProduccion$18.class
 GUI\ventanaLineaProduccion$5.class
 GUI\ventanaLineaProduccion$11.class
@@ -31,6 +32,7 @@ GUI\ventanaInformacionMaquina$8.class
 GUI\ventanaLineaProduccion$8.class
 GUI\ventanaLineaProduccion$26.class
 GUI\login$4.class
+GUI\ventanaEnviarMailSuperiores$2.class
 GUI\ventanaPrincipal.class
 GUI\ventanaLineaProduccion$4.class
 GUI\ventanaInformacionMaquina$5.class
@@ -38,6 +40,7 @@ GUI\ventanaLineaProduccion$19.class
 GUI\ventanaLineaProduccion.class
 GUI\ventanaPrincipal$2.class
 GUI\ventanaInformacionMaquina$1.class
+GUI\ventanaEnviarMailSuperiores$3.class
 GUI\ventanaLineaProduccion$22.class
 GUI\ventanaInformacionMaquina$4.class
 GUI\ventanaLineaProduccion$12.class
@@ -46,6 +49,7 @@ GUI\login$5.class
 GUI\ventanaInformacionMaquina$9.class
 GUI\ventanaPrincipal$3$1.class
 GUI\ventanaLineaProduccion$13.class
+GUI\ventanaEnviarMailSuperiores$1.class
 GUI\ventanaLineaProduccion$25.class
 GUI\ventanaLineaProduccion$10.class
 GUI\gmail.class

@@ -17,6 +17,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     public static ventanaLineaProduccion ventanaLineaProdu;
     private static ventanaPrincipal ventanaPrinci;
+    public static ventanaMailSuperiores ventanaMailSup;
     private static splash Splash;
     private static Timer timer;
     private static TimerTask task;
@@ -39,6 +40,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     public void inicializarVentanas(){
         ventanaLineaProdu= new ventanaLineaProduccion(this);
         ventanaLineaProdu.setVisible(false);
+        ventanaMailSup= new ventanaMailSuperiores();
+        ventanaMailSup.setVisible(false);
     }
     
     public static void toggleButtons()
@@ -79,6 +82,15 @@ public class ventanaPrincipal extends javax.swing.JFrame {
             
         }
     }
+    
+    
+    public static void mostrarVentanaEnviarMailSuperiores()
+    {      
+        cambiarContexto();
+        ventanaMailSup.setVisible(true);
+        
+    }
+    
     
     public static void mensajeAdvertencia()
     {
