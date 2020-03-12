@@ -462,7 +462,6 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(0, 153, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Iconos usados\\close [#1538].png")); // NOI18N
         jButton4.setText("SALIR");
         jButton4.setBorder(null);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -608,7 +607,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         });
         jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 0, 110, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\Y2-180L-4.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Imagenes maquinas\\bobina.png")); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(410, 290));
         jLabel2.setMinimumSize(new java.awt.Dimension(410, 290));
         jLabel2.setName(""); // NOI18N
@@ -658,7 +657,6 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 430, 250));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\fondo blanco.png")); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 390, 240));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -668,7 +666,7 @@ public class ventanaInformacionMaquina extends javax.swing.JFrame {
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 860, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\fondoinfomaquina.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Imagenes maquinas\\fondoinfomaquina.png")); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 620));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 950, 620));

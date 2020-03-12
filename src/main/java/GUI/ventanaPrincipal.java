@@ -20,17 +20,22 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private static splash Splash;
     private static Timer timer;
     private static TimerTask task;
+    private static String usuario;
     
     /**
      * Creates new form ventanaPrincipal
      */
-    public ventanaPrincipal() {
+    public ventanaPrincipal(boolean ext, String user) 
+    {
         initComponents();
         this.setLocationRelativeTo(null);
         establecerIcono();
-        inicializarVentanas();
-        System.out.println ("EL FUCKIN CLASSPATH"+System.getProperty ("java.class.path"));
+        inicializarVentanas();        
+        usuario= user;
+        if (ext)
+            this.main(new String [0]);
     }
+    
     public void inicializarVentanas(){
         ventanaLineaProdu= new ventanaLineaProduccion(this);
         ventanaLineaProdu.setVisible(false);
@@ -376,7 +381,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {  
                 System.out.println("ACA ESTA EL CLASSPATH"+System.getProperty("java.classpath"));
-                Splash=new splash();                
+                //Splash=new splash(usuario);                
+                Splash = new splash();
                 timer = new Timer();
                 task = new TimerTask() {
                                         int tics=0;
@@ -418,7 +424,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                                         }
                 };
                 timer.schedule(task, 10, 70);                  
-                ventanaPrinci =new ventanaPrincipal();
+                ventanaPrinci =new ventanaPrincipal(false,usuario);
             }
         });
     }

@@ -51,6 +51,7 @@ public class gmail {
             transport.connect("smtp.gmail.com", remitente, "Matiasjrb95!");
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
+            System.out.println("Mail enviado");
         }
         catch (MessagingException me) {
             me.printStackTrace();   //Si se produce un error

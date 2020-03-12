@@ -23,13 +23,15 @@ public class splash extends javax.swing.JFrame {
     
     private Timer timer;
     private TimerTask task;
+    private static  String usuario;
     /**
      * Creates new form splash
      */
     public splash() {
-        initComponents();        
+        initComponents();          
         this.setLocationRelativeTo(null);
         establecerIcono();
+        //usuario=user;
         timer = new Timer();
         task = new TimerTask() {
                                 int tics=0;
@@ -149,16 +151,16 @@ public class splash extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("0%");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 290, 60));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 290, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("BIENVENIDO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 290, 60));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 290, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mjrca\\Desktop\\Imagenes maquinas\\logo.png")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -30, 490, 370));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\BullMetal\\Imagenes maquinas\\logo.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -10, 490, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,7 +185,7 @@ public class splash extends javax.swing.JFrame {
                 Desktop desktop = Desktop.getDesktop();
                 if (desktop.isSupported(Desktop.Action.BROWSE)) 
                 {
-                    desktop.browse(new URI("http://cutt.ly/MatiasJRB"));
+                    desktop.browse(new URI("https://matiasjrb.com.ar"));
                 }
             }
         } 
