@@ -24,7 +24,7 @@ public class ventanaMailSuperiores extends javax.swing.JFrame {
     
     public void enviarMail()
     {
-        //Gmail.enviarConGmail()
+        Gmail.enviarConGMail("mjrcal95@hotmail.com.ar","Situacion de prevensión",jTextArea1.getText());
     }
 
     /**
