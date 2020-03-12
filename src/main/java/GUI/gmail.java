@@ -27,7 +27,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class gmail {
 
-    private static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+    public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
         // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
         String remitente = "matiasjriosb";  //Para la dirección nomcuenta@gmail.com
 

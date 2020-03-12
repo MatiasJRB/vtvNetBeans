@@ -439,6 +439,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                                                        apagarSplash();
                                                        ventanaPrinci.setVisible(true);
                                                        mensajePrevision();
+                                                       mensajeAdvertencia();
                                                        activado=false;
                                                     }
                                                 }

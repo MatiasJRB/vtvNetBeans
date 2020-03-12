@@ -11,11 +11,20 @@ package GUI;
  */
 public class ventanaMailSuperiores extends javax.swing.JFrame {
 
+    private gmail Gmail;
     /**
      * Creates new form ventanaMailSuperiores
      */
     public ventanaMailSuperiores() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        Gmail = new gmail();
+    }
+    
+    
+    public void enviarMail()
+    {
+        //Gmail.enviarConGmail()
     }
 
     /**
@@ -38,6 +47,7 @@ public class ventanaMailSuperiores extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,7 +118,7 @@ public class ventanaMailSuperiores extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("EXPLICAR SITUACIÓN SOBRE REVISIÓN");
+        jLabel1.setText("EXPLICAR LA DEMORA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -125,7 +135,7 @@ public class ventanaMailSuperiores extends javax.swing.JFrame {
                                 .addGap(60, 60, 60)
                                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
+                        .addGap(248, 248, 248)
                         .addComponent(jLabel1)))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -152,11 +162,12 @@ public class ventanaMailSuperiores extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
+        enviarMail();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
