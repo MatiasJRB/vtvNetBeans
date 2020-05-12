@@ -22,6 +22,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private static Timer timer;
     private static TimerTask task;
     private static String usuario;
+    public static gmail Gmail;
     
     /**
      * Creates new form ventanaPrincipal
@@ -35,6 +36,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         usuario= user;
         if (ext)
             this.main(new String [0]);
+        Gmail= new gmail();
     }
     
     public void inicializarVentanas(){
@@ -105,6 +107,12 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         {
             mostrarVentanaEnviarMailSuperiores();          
         }
+    }
+    
+    public static void mensajeASuperiores()
+    {
+        Gmail.enviarConGMail("mjrcal95@hotmail.com.ar","Falta en atención de previsión","Se le comunica qué Matias Rios está demorado un total de '5 días' en la atención de la pieza AWZ del frenómetro.");
+        
     }
     
     public void establecerIcono() {
@@ -440,6 +448,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
                                                        ventanaPrinci.setVisible(true);
                                                        mensajePrevision();
                                                        mensajeAdvertencia();
+                                                       mensajeASuperiores();
                                                        activado=false;
                                                     }
                                                 }
